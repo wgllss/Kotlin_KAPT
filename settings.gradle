@@ -1,0 +1,5 @@
+rootProject.name = "Kotlin_KAPT"
+include ':app'
+include ':networkApiData'
+include ':annotations'
+include ':annotation_compiler'

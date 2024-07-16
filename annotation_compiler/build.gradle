@@ -1,0 +1,26 @@
+plugins {
+    id 'java'
+    id 'java-library'
+    id 'kotlin'
+    id 'kotlin-kapt'
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+//    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc4'  java 用法
+//    implementation 'com.google.auto.service:auto-service:1.0-rc4'    java 用法
+
+    implementation "com.google.auto.service:auto-service:1.0-rc4"  // kotlin 用法
+    kapt "com.google.auto.service:auto-service:1.0"                // kotlin 用法
+    implementation "com.squareup:kotlinpoet:1.8.0"
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+
+    implementation project(path: ':annotations')
+    implementation project(path: ':networkApiData')
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

@@ -362,7 +362,8 @@ class AptProcessor : AbstractProcessor() {
 
 ## 五、查看自动生成的 Repository 类，及调用
 build app工程 ，
-或者点击 app task的 assembleDebug 如下图：
+或者点击 app task的 assembleDebug 如下图： 
+
 <img src="https://gitee.com/wgllss888/Kotlin_KAPT/raw/master/pic/task.jpeg" width="603" height="641"/>
 
 

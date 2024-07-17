@@ -1,5 +1,6 @@
 # 注解处理器在架构、框架中实战应用：MVVM中数据源提供Repository类的自动生成
-## 一、
+## 一、项目目录介绍
+<img src="https://gitee.com/wgllss888/Kotlin_KAPT/raw/master/pic/intr.jpg" width="220" height="448"/>
 
 
 

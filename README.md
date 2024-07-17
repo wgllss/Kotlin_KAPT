@@ -361,10 +361,72 @@ class AptProcessor : AbstractProcessor() {
 
 
 ## 六、查看自动生成的 Repository 类，及调用
-build app工程 ，
-或者点击 app task的 assembleDebug 如下图： 
+ 1.build app工程 ，
+ 或者点击 app task的 assembleDebug 如下图： 
 
 <img src="https://gitee.com/wgllss888/Kotlin_KAPT/raw/master/pic/task.jpeg" width="603" height="641"/>
+ 2.查看自动生成的类：
+<img src="https://gitee.com/wgllss888/Kotlin_KAPT/raw/master/pic/cre.jpg" width="561" height="524"/>
+
+ 3.查看生成的代码：
+```
+package com.wx.kotlin_kapt_demo.data_source.kapt
+
+import com.wx.kotlin_kapt_demo.data_source.repository.BaseRepository
+import com.wx.test.api.Api
+import com.wx.test.api.`data`.BaiduDataBean
+import com.wx.test.api.`data`.BaseResponse
+import java.util.ArrayList
+import kotlin.Int
+import kotlin.Long
+import kotlin.String
+import okhttp3.RequestBody
+
+public class ApiRepository : BaseRepository<Api>() {
+    public suspend fun get899(
+        word: String,
+        queryWord: String,
+        pn: Int,
+        gsm: String
+    ): BaseResponse<ArrayList<BaiduDataBean>> = service.get899(word, queryWord, pn, gsm)
+
+    public suspend fun register(
+        username: String,
+        password: String,
+        repassword: String
+    ): String = service.register(username, password, repassword)
+
+    public suspend fun testPostBody(body: RequestBody): String = service.testPostBody(body)
+
+    public suspend fun testPostBody222(ID: Long, name: java.lang.String): String {
+        val map = mutableMapOf<String, Any>()
+        map["ID"] = ID
+        map["name"] = name
+        val result = service.testPostBody222(com.wx.test.api.RequestBodyCreate.toBody(com.google.gson.Gson().toJson(map)))
+        return result
+    }
+}
+```
+ 4.app 工程中调用:
+```
+class MainVIewModel : ViewModel() {
+
+    private val repository by lazy { ApiRepository() }
+    val liveDataImg by lazy { MutableLiveData<String>() }
+
+    fun requestTest() {
+        viewModelScope.launch(Dispatchers.IO) {
+            val result = repository.get899("西游记", "西游记", 1, "")
+            result?.data?.takeIf {
+                it.size > 0
+            }?.let {
+                liveDataImg.postValue(it[0].middleURL)
+            }
+        }
+    }
+}
+```
+
 
 
 

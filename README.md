@@ -130,7 +130,7 @@ class KaptComponet {
 
 
 
-## 四、注解处理模块（annotation_compiler）
+## 五、注解处理模块（annotation_compiler）
 主要负责自动成Repository 类
 
 1. build.gradle里面编写
@@ -360,7 +360,7 @@ class AptProcessor : AbstractProcessor() {
 
 
 
-## 五、查看自动生成的 Repository 类，及调用
+## 六、查看自动生成的 Repository 类，及调用
 build app工程 ，
 或者点击 app task的 assembleDebug 如下图： 
 

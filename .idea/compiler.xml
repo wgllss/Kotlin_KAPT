@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <bytecodeTargetLevel target="1.8">
-      <module name="Kotlin_KAPT.app" target="17" />
+      <module name="Kotlin_KAPT.app" target="11" />
       <module name="Kotlon_KAPT.app" target="11" />
     </bytecodeTargetLevel>
   </component>
